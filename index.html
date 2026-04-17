@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ココナラ Web制作 受注〜納品マニュアル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Appleデバイスのシステムフォントを優先し、洗練されたタイポグラフィを実現
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', '"Segoe UI"', '"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        base: '#F5F5F7',       // Appleライクな優しい背景色
+                        surface: '#FFFFFF',    // カードの背景色
+                        ink: {
+                            DEFAULT: '#1D1D1F', // 真っ黒ではない、上品なテキストカラー
+                            muted: '#86868B',   // 控えめな説明用テキスト
+                            border: '#E5E5EA'   // 極めて薄いボーダー
+                        },
+                        accent: '#00A497',      // ココナラグリーン（最小限のアクセントとして使用）
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 滑らかなスクロールと文字のアンチエイリアス処理 */
+        body {
+            background-color: #F5F5F7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* 美しいカードのホバーエフェクト（機能性の提示） */
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E5EA;
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="text-ink leading-relaxed">
+
+    <!-- Header (ミニマルなタイポグラフィと十分な余白) -->
+    <header class="pt-32 pb-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">Guideline</span>
+            <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-ink mb-6">ココナラ Web制作マニュアル</h1>
+            <p class="text-lg md:text-xl text-ink-muted font-medium">HTML/CSSコーディング案件における<br class="hidden md:block">受注から納品・公開までの完全ガイド</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 pb-32 space-y-32">
+
+        <!-- Section 1: 全体の流れ -->
+        <section>
+            <div class="mb-10 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">01. 受注から納品までの基本フロー</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Steps -->
+                <div class="glass-card p-8">
+                    <span class="text-ink-muted text-sm font-semibold tracking-wider mb-2 block">STEP 1</span>
+                    <h3 class="font-semibold text-xl mb-3">出品とヒアリング</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">サービス内容を明確に出品。問い合わせが来たら、目的、デザイン、必要な機能、<strong class="text-ink font-medium">ドメイン・サーバーの有無</strong>をヒアリングします。</p>
+                </div>
+                <div class="glass-card p-8">
+                    <span class="text-ink-muted text-sm font-semibold tracking-wider mb-2 block">STEP 2</span>
+                    <h3 class="font-semibold text-xl mb-3">提案・受注・仮払い</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">見積りと納期を提示。お客様が購入（仮払い）した時点で契約成立、制作スタートとなります。</p>
+                </div>
+                <div class="glass-card p-8">
+                    <span class="text-ink-muted text-sm font-semibold tracking-wider mb-2 block">STEP 3</span>
+                    <h3 class="font-semibold text-xl mb-3">制作・途中確認</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">デザイン・コーディングを行います。ご自身のテスト環境にアップロードし、お客様にブラウザ上で確認してもらいます。</p>
+                </div>
+                <div class="glass-card p-8">
+                    <span class="text-ink-muted text-sm font-semibold tracking-wider mb-2 block">STEP 4</span>
+                    <h3 class="font-semibold text-xl mb-3">本番公開・納品・評価</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">修正完了後、お客様のサーバーへアップロード。問題なく表示されたら、ココナラ上で納品手続きを行い完了です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: ドメイン・サーバー方針 -->
+        <section>
+            <div class="mb-10 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">02. ドメイン・サーバーの取り扱い</h2>
+            </div>
+            <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                <!-- さりげないアクセントライン -->
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-accent"></div>
+                
+                <h3 class="font-semibold text-xl mb-4">お客様自身に契約していただく（推奨）</h3>
+                <p class="text-ink-muted text-sm leading-relaxed mb-8">後々の金銭トラブルやドメイン失効リスクを防ぐため、ドメインとサーバーはお客様自身の名義（クレジットカード）で契約していただきます。</p>
+                
+                <h4 class="font-medium text-sm text-ink mb-4 tracking-widest uppercase">サポートのポイント</h4>
+                <ul class="space-y-3 text-sm text-ink-muted">
+                    <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">•</span>
+                        出品ページに「ドメイン・サーバー取得はお客様にお願いしております」と明記する。
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">•</span>
+                        初心者のお客様には、契約手順をまとめたマニュアルをお渡しする。
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">•</span>
+                        不安な方には、ビデオ通話（画面共有）で取得をサポートする。
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 3: サーバーへのアップロード手順 -->
+        <section>
+            <div class="mb-10 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">03. 本番環境へのアップロード手順</h2>
+                <p class="text-ink-muted mt-3">お客様でのアップロードはハードルが高いため、一時的に情報をお預かりして代行します。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 flex flex-col items-center text-center">
+                    <div class="w-10 h-10 rounded-full bg-base flex items-center justify-center text-accent font-semibold mb-6">1</div>
+                    <h3 class="font-semibold text-lg mb-3">FTP情報を聞く</h3>
+                    <p class="text-ink-muted text-sm">お客様がサーバー契約時に受け取ったメールから「ホスト名」「ユーザー名」「パスワード」を教えてもらいます。</p>
+                </div>
+                <div class="glass-card p-8 flex flex-col items-center text-center">
+                    <div class="w-10 h-10 rounded-full bg-base flex items-center justify-center text-accent font-semibold mb-6">2</div>
+                    <h3 class="font-semibold text-lg mb-3">FTPソフトで接続</h3>
+                    <p class="text-ink-muted text-sm">ご自身のPCにFileZillaなどのFTPソフトをインストールし、情報を入力してサーバーへ接続します。</p>
+                </div>
+                <div class="glass-card p-8 flex flex-col items-center text-center">
+                    <div class="w-10 h-10 rounded-full bg-base flex items-center justify-center text-accent font-semibold mb-6">3</div>
+                    <h3 class="font-semibold text-lg mb-3">データ転送と確認</h3>
+                    <p class="text-ink-muted text-sm">ファイル一式をアップロード後、実際のURLにアクセスし、表示崩れやリンク切れがないか最終確認します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: ココナラでの「納品」手順 -->
+        <section>
+            <div class="mb-10 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">04. 正式な納品手続き</h2>
+            </div>
+            
+            <div class="glass-card overflow-hidden">
+                <div class="p-8 md:p-10 border-b border-ink-border">
+                    <h3 class="font-semibold text-xl mb-3">1. ソースコード一式の送付</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">HTML、CSS、画像データなどを一つのフォルダにまとめ、ZIPファイルに圧縮します。トークルームに添付し「バックアップ用として保管してください」と伝えます。</p>
+                </div>
+                <div class="p-8 md:p-10 bg-base/50">
+                    <h3 class="font-semibold text-xl mb-3">2. 「正式な納品」として完了報告</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed mb-6">ココナラの機能「正式な納品」にチェックを入れてメッセージを送信します。</p>
+                    <div class="bg-surface p-6 rounded-xl border border-ink-border text-sm text-ink-muted font-mono leading-relaxed shadow-sm">
+                        サーバーへのアップロード作業が完了し、無事にWebサイトが公開されました。<br>
+                        以下のURLよりご確認ください。<br><br>
+                        https://your-domain.com
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 満足度アップの秘訣 -->
+        <section>
+            <div class="mb-10 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">05. 顧客満足度を高めるポイント</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-8">
+                    <h4 class="font-semibold text-lg mb-3">アップロード代行をアピール</h4>
+                    <p class="text-sm text-ink-muted leading-relaxed">「面倒なサーバー公開作業も無料で代行します」と出品ページに記載することで、初心者のお客様の依頼ハードルを劇的に下げることができます。</p>
+                </div>
+                <div class="glass-card p-8">
+                    <h4 class="font-semibold text-lg mb-3">パスワード変更のお願い</h4>
+                    <p class="text-sm text-ink-muted leading-relaxed">納品時に「セキュリティのため、サーバーパスワードの変更をお勧めします」と伝えることで、プロとしての信頼感が向上します。</p>
+                </div>
+                <div class="glass-card p-8 md:col-span-2">
+                    <h4 class="font-semibold text-lg mb-3">案内テキストのテンプレート化</h4>
+                    <p class="text-sm text-ink-muted leading-relaxed">「エックスサーバーの場合は『■重要■サーバーアカウント設定完了のお知らせ』というメールの〜」のように、具体的で迷わない指示テキストを事前に準備しておきましょう。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 text-center border-t border-ink-border/50">
+        <p class="text-xs text-ink-muted tracking-wider">© COCONALA WEB DESIGN MANUAL</p>
+    </footer>
+
+</body>
+</html>
